@@ -14,13 +14,13 @@ test('throw exception when seding on socket after term() called', function (t) {
     var sock = nano.socket('pub');
 
     sock.on('error', function (err) {
+      console.log("XXXX", err)
         t.ok('error was thrown on send after term');
         sock.close();
     });
 
-    sock.send("Hello");
     nano.term();
-
+    sock.send("Hello");
 });
 
 
